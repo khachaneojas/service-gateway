@@ -1,0 +1,12 @@
+# BUILD
+FROM maven:3.8.2-jdk-11 AS build
+COPY . .
+RUN mvn clean install -DskipTests
+
+# PACKAGE
+FROM openjdk:11
+COPY --from=build /target/sprk-api-gateway-service-0.0.1.jar sprk-api-gateway-service.jar
+
+# ENV-PORT
+EXPOSE 8888
+ENTRYPOINT ["java","-jar","sprk-api-gateway-service.jar"]

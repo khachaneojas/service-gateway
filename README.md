@@ -1,0 +1,2 @@
+# APIGateway-MS
+This API gateway provides a number of features including request routing, load balancing, and service discovery that allow you to easily route requests from clients to the appropriate backend microservices.
